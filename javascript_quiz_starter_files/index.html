@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript Quiz</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="./quiz.js"></script>
+</head>
+<body>
+<h1>JavaScript Quiz</h1>
+<hr>
+
+<button class="btn btn-primary" onclick="myFunction()">Begin Quiz</button>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+  // var txt;
+  // var person = prompt("Press 'ENTER' to play the game or 'n' to exit:");
+  // if (person == null || person == "n") {
+  //   txt = "User cancelled the quiz.";
+  // } else {
+  //   txt = "Thanks for playing!";
+  //   // txt = `You got ${correct} correct`;
+  // }
+
+  var questions = [
+  "Question 1: What is the name of tallest building in Chicago?", 
+  "Question 2: How many wings does a bee have?", 
+  "Question 3: How many stars are on the Chicago flag?", 
+  "Question 4: How many continents are there on earth?", 
+  "Question 5: How many oceans are there?"
+];
+
+var answers = [
+  "Sears Tower", 
+  4,
+  4,
+  7,
+  1
+];
+
+var correct_answers_guessed = []
+var wrong_answers_guessed = []
+
+
+var correct = 0 
+for(var i=0; i<questions.length; i++){
+  
+  var response = prompt(questions[i]);
+  if (response == answers[i]) {
+    correct++
+    correct_answers_guessed.push(questions[i]);
+    // console.log(correct_answers_guessed)
+  }
+  else {
+    wrong_answers_guessed.push(questions[i]);
+
+}
+var txt = `You got ${correct} correct`;
+
+}
+
+// for(var i=0; i<answers.length; i++){
+//   var answers_in_list = prompt(answers[i]);
+// }
+
+
+correct_answers_guessed = document.querySelectorAll('.myList-item');
+for (var i = 0; i < correct_answers_guessed.length; i++) {
+    var element = correct_answers_guessed[i];
+    var p = document.createElement('P');
+    p.innerText = `Line Item: ${i+1}`
+    element.appendChild(p);
+}
+
+
+
+
+  
+  document.getElementById("demo").innerHTML = txt;
+}
+</script>
+
+
+
+<!-- 
+<script>
+var questions = [
+  "Question 1: What is the name of tallest building in Chicago?", 
+  "Question 2: How many wings does a bee have?", 
+  "Question 3: How many stars are on the Chicago flag?", 
+  "Question 4: How many continents are there on earth?", 
+  "Question 5: How many oceans are there?"
+];
+
+// for(var i=0; i<questions.length; i++){
+//   console.log(questions[i])
+// }
+
+for(var i=0; i<questions.length; i++){
+  prompt(questions[i])
+}
+
+
+var answers = [
+  "Sears Tower", 
+  4,
+  4,
+  7,
+  1
+];
+</script> -->
+
+
+
+<!-- <div id="output">
+  <p class="questions">Question 1: What is the name of tallest building in Chicago? </p>
+  <p class="questions">Question 2: How many wings does a bee have? </p>
+  <p class="questions">Question 3: How many stars are on the Chicago flag? </p>
+  <p class="questions">Question 4: How many continents are there on earth? </p>
+  <p class="questions">Question 5: How many oceans are there? </p>
+
+
+  <p class="answers">Sears Tower </p>
+  <p class="answers">4 </p>
+  <p class="answers">4 </p>
+  <p class="answers">7 </p>
+  <p class="answers">1 </p> -->
+
+
+</div>
+</body>
+</html>
